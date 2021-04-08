@@ -1,0 +1,121 @@
+<%- include('../partials/header') %>
+ 
+    <nav class="navbar navbar navbar-dark bg-dark">
+      <a class="navbar-brand" href="home"><i class="fab fa-opera"></i>ptimizedHealth</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="ml-auto navbar-nav">
+          <li class="nav-item active">
+            <a class="nav-link" href="nutrition">Nutrition</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="sleep">Sleep</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="fitness">Fitness</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="profile">Profile</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="trending">Trending</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="about">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="registration">Register!</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+
+  
+    
+  
+  <div id="userMealInput">  
+    <h2 style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; text-align:center">Enter Your Preferences</h1>
+  
+    <!-- <div class="row "> -->
+     <form action="/meal_database"  method="post">
+      <div class="form-group ">
+      <select id="dietDropDown" name = "dietType" class="form-control " >
+        <option>Diet Type</option>
+        <option >Vegetarian</option>
+        <option >Western</option>
+        <option >Vegan</option>
+        <option >Paleo</option>
+        <option >Keto</option>
+        <option >Mediterranean</option>
+        <option >Raw</option>
+      </select>
+    </div>
+  
+    <div class="form-group">
+      <input  name="userCalories" class="form-control" id="userCalories" placeholder="Enter: Target Calories">
+    </div>
+    <div class="form-group">
+      <input  name="exclude" class="form-control" id="exclude" placeholder="Exclude: separate items with comma">
+    </div>
+    <button type="submit" onclick = "display()"class="btn btn-success">Generate Meals</button>
+    </form>
+ 
+  <!-- </div> -->
+  
+</div>  
+
+<div class="bottom">
+  <h1 style="font-style:italic; font-size:25px; padding-top:2rem;"> Watch the magic happen....</h1>
+  <h2 style= "color: #DC143C;" id="diettype">Diet Type: <%-diet%></h2>
+  <h2 style= "color: #DC143C;" id="calories">Target Calories: <%-calories%></h2>
+  <h2 style= "color: #DC143C;" id="calories">Excluding: <%-excluded%></h2>
+<div class="mealcards">
+  
+<div class="card-columns col-lg">
+  <%
+    if (items) {
+      var cards = '';
+      //var calories = if(calories) ? calories: "Not found";
+      //var protein = if(protein) ? protein: "Not found"
+      //var fat = if(fat) ? fat: "Not found"
+      //var carbs = if(carbs) ? carbs: "Not found"
+      //<!-- Iterate the items object & update the cards variable -->
+      items.forEach(function(item) {  //making a card for each movie that was returned by the API call
+        cards += 
+  
+        '<div class="card" style="width: 18rem;"><div class="card-body"><h4 class="card-title">' 
+          + item.title + 
+          '</h4><p>Calories: '+ calories + 
+            ':</p><p>Protien: '+protein+'</p><p>Fat: '+fat+'</p><p>Carbs: '+carbs+'</p><a href="'+item.sourceUrl+'" target="_blank">Recipe</a></div></div>'
+        
+      }); %>
+      <%- cards %>
+  <% } %>
+  </div>
+  
+</div>
+<h3 style="font-size: 15px; margin:0; padding-top:40rem;" class="calCalc">Back to <a  href="nutrition">Nutrition</a></h3>
+</div>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src = "../js/meal_database.js"></script>
+<%- include('../partials/footer') %>

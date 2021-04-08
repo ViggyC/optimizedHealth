@@ -1,0 +1,126 @@
+.special-card {
+  opacity: .8;
+}
+
+.beta {
+  background-color: rgba(193, 255, 241, 0.2);
+}
+
+h1 {
+  text-align: center;
+  color: black;
+}
+
+p {
+  text-align: center;
+}
+
+div {
+  text-align: center;
+}
+
+
+/*Registration Page Styles*/
+#header {
+  font-family: Nunito;
+  font-size: 40px;
+  text-align: center;
+}
+
+.visionheader {
+  height: 800px;
+}
+
+.visionstatement {
+  padding-top: 5rem;
+}
+
+.start {
+  padding-top: 8rem;
+}
+
+.registrationform {
+  padding-top: 5rem;
+  font-size: 30px;
+  padding-bottom: 5rem;
+  color: white
+}
+
+.login {
+  padding-top: 3.5rem;
+  color: white;
+}
+
+.copyright {
+  font-size: 10px;
+}
+
+/* Add a green text color and a checkmark when the requirements are right */
+.valid {
+  color: green;
+}
+
+.valid:before {
+  position: relative;
+  left: -35px;
+  content: '\2713';
+}
+
+/* Add a red text color and an "x" when the requirements are wrong */
+.invalid {
+  color: red;
+}
+
+.invalid:before {
+  position: relative;
+  left: -35px;
+  content: '\00D7';
+}
+
+.closing {
+  font-size: 15px;
+}
+
+
+
+/* About Page */
+.about-image {
+  object-fit: cover;
+  object-position: center;
+  border-radius: 50%;
+  height: 100px;
+  width: 100px;
+}
+
+.about-banner {
+  background-image: url(https://www.colorado.edu/sites/default/files/styles/xlarge/public/campus_scenics.jpg?itok=HDtlOH9A);
+  background-size: cover;
+  background-position: center;
+  height: 100px;
+}
+
+.about-banner-text {
+  color: white;
+}
+
+.btn-group {
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+/* Trending Page Styles */
+.trending-header {
+  font-weight: bold;
+  text-align: center;
+  padding-top: 3rem;
+}
+
+
+
+/* nutrition */
+.card-img-top {
+  display: block;
+
+}
+
+

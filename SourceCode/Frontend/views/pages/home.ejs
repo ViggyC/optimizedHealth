@@ -1,0 +1,138 @@
+<%- include('../partials/header') %>
+  <section id="navigation">
+    <nav class="navbar navbar navbar-dark bg-dark">
+      <a class="navbar-brand" href="home"><i class="fab fa-opera"></i>ptimizedHealth</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="ml-auto navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="nutrition">Nutrition</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="sleep">Sleep</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="fitness">Fitness</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="profile">Profile</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="trending">Trending</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="about">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="registration">Register!</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </section>
+
+    <header class="masthead">
+      <div class="container h-100">
+        <div class="row h-100 align-items-center">
+          <div class="col-12 text-center">
+            <h1 class="display-2">OptimizedHealth</h1>
+            <p class="lead">The frontpage of your health journey.</p>
+          </div>
+        </div>
+      </div>
+    </header>
+    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+      <ol class="carousel-indicators">
+        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+      </ol>
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <a href="fitness">
+            <img class="d-block w-100" src="https://post.healthline.com/wp-content/uploads/2018/08/9045-Gamifying_Workout_Fitness-1200x628-Facebook.jpg" alt="Second slide">
+            <div class="carousel-caption d-none d-md-block">
+              <div class="card bg-dark text-center special-card">
+                <div class="card-body">
+                  <h2 class="card-title">Fitness</h2>
+                  <p class="lead">Stay on Track.</p>
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+        <div class="carousel-item">
+          <a href="sleep">
+            <img class="d-block w-100" src="https://post.healthline.com/wp-content/uploads/2020/08/3726-couple_bed_sleep-1200x628-facebook-1200x628.jpg" alt="First slide">
+            <div class="carousel-caption d-none d-md-block">
+              <div class="card bg-dark text-center special-card">
+                <div class="card-body">
+                  <h2 class="card-title">Sleep</h2>
+                  <p class="lead">Count Your Zzz's.</p>
+                </div>
+              </div>
+            </div>
+          </a>
+
+        </div>
+        <div class="carousel-item">
+          <a href="nutrition">
+            <img class="d-block w-100" src="https://post.healthline.com/wp-content/uploads/2020/09/healthy-eating-ingredients-1200x628-facebook-1200x628.jpg" alt="Third slide">
+            <div class="carousel-caption d-none d-md-block">
+              <div class="card bg-dark text-center special-card">
+                <div class="card-body">
+                  <h2 class="card-title">Nutrition</h2>
+                  <p class="lead">Fuel your Body.</p>
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+
+        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
+
+      <!-- Page Content -->
+      <section class="py-5 btn-light">
+        <div class="container">
+          <h1 class="display-4 align-text-center">Health Progress</h1>
+
+          <div class="jumbotron jumbotron-fluid bg-light">
+            <div class="container beta align-items-center btn-light">
+            </div>
+            <div class="progress">
+              <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">Nutrition</div>
+            </div>
+            <br>
+            <div class="progress">
+              <div class="progress-bar progress-bar-striped progress-bar-animated bg-info" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">Sleep</div>
+            </div>
+            <br>
+            <div class="progress">
+              <div class="progress-bar progress-bar-striped progress-bar-animated bg-warning" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">Exercise</div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+      <div class="card">
+        <div class="row h-100 align-items-center">
+          <div class="col-12 text-center">
+            <h3 class="display-4">About Us</h3>
+            <h5 class="card-title lead">Founded in 2021, our mission is to promote the health and well-being of individuals by allowing them to keep track of their habits simply and effectively.</h5>
+            <a href="about" class="btn btn-info">Click Here to Learn More</a>
+          </div>
+          <div class="card-body"></div>
+        </div>
+      </div>
+    </div>
+<%- include('../partials/footer') %>

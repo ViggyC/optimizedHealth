@@ -1,0 +1,44 @@
+/*PROFILE STYLES*/
+.hiname {
+    font-weight: 300;
+    text-align: center;
+    font-size: 2rem;
+  }
+  
+  .category {
+    text-align: center;
+    margin: auto;
+    background-color: #606060;
+    width: 100%;
+    border: 3px solid black;
+    padding-left: 27rem;
+  }
+  
+  .profilepic {
+    text-align: center;
+  }
+  .center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+  }
+
+.imagecard{
+    background-color : #606060;
+    margin: auto;
+    width: 50%;
+ 
+  padding: 10px;
+}
+
+.card-img-top{
+    height:100%;
+}
+
+
+
+
+.all{
+    background-color: #DEB887;
+}

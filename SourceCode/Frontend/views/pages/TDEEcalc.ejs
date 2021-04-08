@@ -1,0 +1,93 @@
+<%- include('../partials/header') %>
+   
+  <section id="navigation">
+    <nav class="navbar navbar navbar-dark bg-dark">
+      <a class="navbar-brand" href="home"><i class="fab fa-opera"></i>ptimizedHealth</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class=" collapse navbar-collapse" id="navbarNav">
+        <ul class=" ml-auto navbar-nav">
+          <li class="  nav-item active">
+            <a class="nav-link" href="nutrition">Nutrition <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="sleep">Sleep</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="fitness">Fitness</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="profile">Profile</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="trending">Trending</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="about">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="registration">Register!</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <div class="card text-center">
+        <h1 class="display-2">Nutritional Calculator</h1>
+    </div>
+    <ul class="nav justify-content-center">
+        <li class="nav-item">
+          <a class="nav-link active" href="BMRcalc">BMR</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="nutritioncalc">Current Caloric Intake</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="TDEEcalc">TDEE</a>
+        </li>
+      </ul>
+    <figure class="center" style="display:flex">
+        <img style="width:300px" src="https://healthyeater.com/wp-content/uploads/2013/11/TDEE.jpg" class = "center">
+    </figure>
+<div class="card text-center">
+
+    <div class="p-3 mb-2 bg-info text-white">
+        <h5 class ="lead">
+            Recommended Caloric Intake        
+            <small class="text-muted">with Exercise Level</small>
+          </h5>
+        <label>BMR:
+            <input id="BMR" type="number" oninput="TDEE()" value="-">
+            kcal
+        </label>
+        <br>
+        <label>Sedentary:
+        <input id="sedentary" type="radio" name="level" onchange="TDEE()">
+        </label>
+        <br>
+        <label>Light Activity:
+        <input id="light_activity" type="radio" name="level" onchange="TDEE()" checked>
+        </label>
+        <br>
+        <label>Moderate Activity:
+            <input id="mod_activity" type="radio" name="level" onchange="TDEE()" checked>
+            </label>
+            <br>
+        <label>Extra Activity:
+            <input id="much_activity" type="radio" name="level" onchange="TDEE()" checked>
+        </label>
+        <br>
+        <label>Extreme Activity:
+            <input id="extra_activity" type="radio" name="level" onchange="TDEE()" checked>
+        </label>
+        <br>
+        <label>
+        <p>BMR: <span id="totalTDEE"></span></p>
+        </label>
+    </div>
+</div>
+</div>      
+</div>
+</div>
+
+<%- include('../partials/footer') %>
