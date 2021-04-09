@@ -50,11 +50,11 @@
               <img src="../img/sleepstuff.jpg" style="margin-left: 450px;">
             </div>
           </div>
-         <form>
+         <form name = "sleepForm" action = "/sleepreq" method = "post"> <!--action = "connect.php" method ="post" -->
           <div class="form-row">
             <div class="form-group col-md-2">
               <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="SleepType" id="radio1" value="option1">
+                <input class="form-check-input" type="radio" name="sleepType" id="radio1" value="nap">
                 <label class="form-check-label" for="radio1">
                   <h4>Nap</h4>
                 </label>
@@ -62,7 +62,7 @@
             </div>
             <div class="form-group col-md-2">
               <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="SleepType" id="radio2" value="option2">
+                <input class="form-check-input" type="radio" name="sleepType" id="radio2" value="sleep">
                 <label class="form-check-label" for="radio2">
                   <h4>Sleep</h4>
                 </label>
@@ -70,7 +70,7 @@
             </div>
             <div class="form-group col-md-2">
               <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="SleepType" id="radio4" value="option4">
+                <input class="form-check-input" type="radio" name="sleepType" id="radio4" value="other">
                 <label class="form-check-label" for="radio4">
                   <h4>Other</h4>
                 </label>
@@ -79,13 +79,13 @@
           </div>
           <div class="form-row">
             <div class="form-group col-md-4">
-              <input type="text" class="form-control" placeholder="Date MM/DD/YYYY">
+              <input type="text" class="form-control" name = "date" placeholder=" YYYY-MM-DD (add -)">
             </div>
             <div class="form-group col-md-4">
-              <input type="text" class="form-control" placeholder="Start Time">
+              <input type="text" class="form-control" name ="startTime" placeholder="Start Time">
             </div>
             <div class="form-group col-md-4">
-              <input type="text" class="form-control" placeholder="End Time">
+              <input type="text" class="form-control" name ="endTime" placeholder="End Time">
             </div>
           </div>
           <div class="form-row">
@@ -94,7 +94,7 @@
             </div>
             <div class="form-group col-md-1">
               <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="Q1-10" id="Q1" value="Q1">
+                <input class="form-check-input" type="radio" name="q1" id="Q1" value="1">
                 <label class="form-check-label" for="Q1">
                   <h4>1</h4>
                 </label>
@@ -102,7 +102,7 @@
             </div>
             <div class="form-group col-md-1">
               <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="Q1-10" id="Q2" value="Q2">
+                <input class="form-check-input" type="radio" name="q1" id="Q2" value="2">
                 <label class="form-check-label" for="Q2">
                   <h4>2</h4>
                 </label>
@@ -110,7 +110,7 @@
             </div>
             <div class="form-group col-md-1">
               <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="Q1-10" id="Q3" value="Q3">
+                <input class="form-check-input" type="radio" name="q1" id="Q3" value="3">
                 <label class="form-check-label" for="Q3">
                   <h4>3</h4>
                 </label>
@@ -118,7 +118,7 @@
             </div>
             <div class="form-group col-md-1">
               <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="Q1-10" id="Q4" value="Q4">
+                <input class="form-check-input" type="radio" name="q1" id="Q4" value="4">
                 <label class="form-check-label" for="Q4">
                   <h4>4</h4>
                 </label>
@@ -126,7 +126,7 @@
             </div>
             <div class="form-group col-md-1">
               <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="Q1-10" id="Q5" value="Q5">
+                <input class="form-check-input" type="radio" name="q1" id="Q5" value="5">
                 <label class="form-check-label" for="Q5">
                   <h4>5</h4>
                 </label>
@@ -134,7 +134,7 @@
             </div>
             <div class="form-group col-md-1">
               <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="Q1-10" id="Q6" value="Q6">
+                <input class="form-check-input" type="radio" name="q1" id="Q6" value="6">
                 <label class="form-check-label" for="Q6">
                   <h4>6</h4>
                 </label>
@@ -142,7 +142,7 @@
             </div>
             <div class="form-group col-md-1">
               <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="Q1-10" id="Q7" value="Q7">
+                <input class="form-check-input" type="radio" name="q1" id="Q7" value="7">
                 <label class="form-check-label" for="Q7">
                   <h4>7</h4>
                 </label>
@@ -150,7 +150,7 @@
             </div>
             <div class="form-group col-md-1">
               <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="Q1-10" id="Q8" value="Q8">
+                <input class="form-check-input" type="radio" name="q1" id="Q8" value="8">
                 <label class="form-check-label" for="Q8">
                   <h4>8</h4>
                 </label>
@@ -158,7 +158,7 @@
             </div>
             <div class="form-group col-md-1">
               <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="Q1-10" id="Q9" value="Q9">
+                <input class="form-check-input" type="radio" name="q1" id="Q9" value="9">
                 <label class="form-check-label" for="Q9">
                   <h4>9</h4>
                 </label>
@@ -166,7 +166,7 @@
             </div>
             <div class="form-group col-md-1">
               <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="Q1-10" id="Q10" value="Q10">
+                <input class="form-check-input" type="radio" name="q1" id="Q10" value="10">
                 <label class="form-check-label" for="Q10">
                   <h4>10</h4>
                 </label>
@@ -196,15 +196,35 @@
           </div>
           <div class="form-row">
             <div class="form-group col-md-4">
-              <input type="text" class="form-control" placeholder="Enter Future Goal Lenth">
+              <input type="text" class="form-control" id = "lengthGoal" name = "futreGoalLenght" placeholder="Enter Future Goal Lenth">
             </div>
             <div class="form-group col-md-4">
-              <input type="text" class="form-control" placeholder="Enter Future Start Time">
+              <input type="text" class="form-control" id = "startGoal"  name = "futureStartTime" placeholder="Enter Future Start Time">
             </div>
             <div class="form-group col-md-4">
-              <input type="text" class="form-control" placeholder="Enter Future End Time">
+              <input type="text" class="form-control" id = "endGoal" name = "futreEndTime" placeholder="Enter Future End Time">
             </div>
           </div>
+          <label for="days">Choose a day of the week:</label>
+          <select name="days" id="days">
+            <option value="M">Monday</option>
+            <option value="T">Tuesday</option>
+            <option value="W">Wenesday</option>
+            <option value="Th">Thursday</option>
+            <option value="F">Friday</option>
+            <option value="S">Saturday</option>
+            <option value="Su">Sunday</option>
+          </select>
+          <div class="form-row">
+            <div class="form-group col-md-4">
+              <input type="text" class="form-control" id = "timeSleepStart" name = "realStartTime" placeholder="Enter time you started sleeping">
+            </div>
+            <div class="form-group col-md-4">
+              <input type="text" class="form-control" id = "timeSleepEnd" name = "realEndTime" placeholder="Enter time you woke up">
+            </div>
+          </div>
+          <br><br>         
+          <input type="submit" value="Submit">
         </form>
          </div>
 

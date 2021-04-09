@@ -1,5 +1,5 @@
 <%- include('../partials/header') %>
-    
+   
   <section id="navigation">
     <nav class="navbar navbar navbar-dark bg-dark">
       <a class="navbar-brand" href="home"><i class="fab fa-opera"></i>ptimizedHealth</a>
@@ -33,7 +33,7 @@
       </div>
     </nav>
     <div class="card text-center">
-        <h1 class="display-2">Nutritional Calculators</h1>
+        <h1 class="display-2">Nutritional Calculator</h1>
     </div>
     <ul class="nav justify-content-center">
         <li class="nav-item">
@@ -47,36 +47,56 @@
         </li>
       </ul>
     <figure class="center" style="display:flex">
-        <img style="width:600px" src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/calories-1522925243.jpg" class = "center">
+        <img style="width:300px" src="https://healthyeater.com/wp-content/uploads/2013/11/TDEE.jpg" class = "center">
     </figure>
-    <div class="jumbotron jumbotron-fluid">
-        <div class="p-3 mb-2 bg-info text-black">
-        <div class="container">
-            <div class="col">
-                <div class="card text-center">
-                    <h5 class="lead">Current Caloric Intake</h5>
-                    <div class="container text-center">
-                    <form action="#" class="form-inline">
-                        
-                        <input type="text" id="first"class="form-control" placeholder="Breakfast (in kcal)">
-                        <input type="text" id="second" class="form-control" placeholder="Lunch (in kcal)">
-                        <input type="text" id="third" class="form-control" placeholder="Dinner (in kcal)">
-                        <input type="text" id="fourth" class="form-control" placeholder="Snack (in kcal)">
-                        <input type="text" id="fifth" class="form-control" placeholder="Snack (in kcal)">
-            
-                    </form>
-                    <p class="font-weight-light" id="result"></p>
-                    </div>
-                </div>       
-            </div>   
-        </div>
+<div class="card text-center">
+
+    <div class="p-3 mb-2 bg-info text-white">
+        <h5 class ="lead">
+            Recommended Caloric Intake        
+            <small class="text-muted">with Exercise Level</small>
+          </h5>
+        <label>BMR:
+            <input id="BMR" type="number" oninput="TDEE()" value="-">
+            kcal
+        </label>
+        <br>
+        <label>Sedentary:
+        <input id="sedentary" type="radio" name="level" onchange="TDEE()">
+        </label>
+        <br>
+        <label>Light Activity:
+        <input id="light_activity" type="radio" name="level" onchange="TDEE()" checked>
+        </label>
+        <br>
+        <label>Moderate Activity:
+            <input id="mod_activity" type="radio" name="level" onchange="TDEE()" checked>
+            </label>
+            <br>
+        <label>Extra Activity:
+            <input id="much_activity" type="radio" name="level" onchange="TDEE()" checked>
+        </label>
+        <br>
+        <label>Extreme Activity:
+            <input id="extra_activity" type="radio" name="level" onchange="TDEE()" checked>
+        </label>
+        <br>
+        <label>
+        <p>TDEE: <span id="totalTDEE"></span></p>
+        </label>
+        <br>
+        <button type="submit" id="TDEEsubmit" class="btn btn-primary btn-circle" onclick="postTDEE()"
+         style='visibility:hidden; height:0px;'>
+          Save TDEE
+        </button>
     </div>
+    <% if (message) {
+      var html = '<p>' + message + '</p>'; %>
+      <%- html %>
+    <% } %>
+</div>
+</div>      
 </div>
 </div>
-    
-    </div>
-<br>
-<br>
-<br>
 
 <%- include('../partials/footer') %>

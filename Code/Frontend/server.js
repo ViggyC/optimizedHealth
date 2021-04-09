@@ -227,17 +227,21 @@ app.get('/profile', (req, res)=> {
   if (req.user) { 
     var user_name = req.user.name;
     var user_email = req.user.email;
-    var query = 'SELECT bmr FROM nutrition WHERE email=\''+user_email+'\';'
+    var query = 'SELECT bmr, tdee FROM nutrition WHERE email=\''+user_email+'\';'
     var bmr;
+    var tdee;
     //console.log("query: "+query)
     var user_bmr = pool.query(query, (err,response)=>{
+      console.log(response.rows);
       console.log(response.rows[0].bmr);
       bmr = response.rows[0].bmr;
+      tdee = response.rows[0].tdee;
       res.render("pages/profile", {
         page_title: "Profile",
         user: user_name,
         user_email: user_email,
-        user_bmr: bmr 
+        user_bmr: bmr,
+        user_tdee: tdee
       });
       if(err){
         throw err;
@@ -342,22 +346,49 @@ app.get('/personalizednutritionpage', function(req, res) {
 
 app.get('/nutritioncalc', function(req, res) {
   res.render("pages/nutritioncalc", {
-    page_title: "Nutrition Calculators"
+    page_title: "Nutrition Calculators",
+    message: ''
   })
 });
 
+app.post('/nutritioncalc', function(req, res) {
+
+  console.log(req.body);
+  let{b, l, d, s1, s2} = req.body;
+
+  var breakfast = parseInt(b);
+  var lunch = parseInt(l);
+  var dinner = parseInt(d);
+  var snack1 = parseInt(s1);
+  var snack2 = parseInt(s2);
+
+  pool.query(`UPDATE nutrition SET calorie_intake=\'{${breakfast},${lunch},${dinner},${snack1},${snack2}}\' WHERE email=$1`, [req.user.email],
+  (err, results) => {
+    if(err) {
+      throw err
+    }
+    console.log("Updated calorie intake");
+
+    res.render("pages/nutritioncalc", {
+      page_title: "Nutrition Calculators",
+      message: "Successfully submitted."
+    })
+
+  })
+})
+
 app.get('/BMRcalc', function(req, res) {
   res.render("pages/BMRcalc", {
-    page_title: "BMR Calculator"
+    page_title: "BMR Calculator",
+    message: ''
   })
 });
 
 //referenced from registration post request
 app.post('/BMRcalc', function(req, res) {
 
-  //console.log(req.body.BMR);
+  // console.log(req.body.BMR);
   var BMR = req.body.BMR;
-  console.log(req.body.BMR);
 
   // use update to modify existing row
   pool.query('UPDATE nutrition SET bmr=$1 WHERE email=$2', [BMR, req.user.email],
@@ -367,18 +398,40 @@ app.post('/BMRcalc', function(req, res) {
     }
     console.log("Updated BMR");
 
-    /////////// maybe some message like successfully updated
-    /////////// or a suggestion to go to TDEE
+    res.render("pages/BMRcalc", {
+      page_title: "BMR Calculator",
+      message: "Successfully submitted."
+    })
 
   })
-});
+})
 
 app.get('/TDEEcalc', function(req, res) {
   res.render("pages/TDEEcalc", {
-    page_title: "BMR Calculator"
+    page_title: "TDEE Calculator",
+    message: ''
   })
 });
 
+app.post('/TDEEcalc', function(req, res) {
+
+  var TDEE = req.body.TDEE;
+  console.log("TDEE " + TDEE);
+  // use update to modify existing row
+  pool.query('UPDATE nutrition SET tdee=$1 WHERE email=$2', [TDEE, req.user.email],
+  (err, results) => {
+    if(err) {
+      throw err
+    }
+    console.log("Updated TDEE");
+
+    res.render("pages/TDEEcalc", {
+      page_title: "TDEE Calculator",
+      message: "Successfully submitted."
+    })
+
+  })
+})
 
 
 // Fitness form data
@@ -411,7 +464,5 @@ app.post('/formreq', function(req, res, next){
 app.listen(process.env.PORT||4000, function() {
   console.log("Server started on port 4000" + __dirname);
 });
-
-
 
 

@@ -69,5 +69,14 @@ function calorieInformation() {
     else if (find("extra_activity").checked)
     result = BMR*1.9;
     find("totalTDEE").innerHTML = Math.round(result)
+
+    // allow button to appear
+    document.getElementById("TDEEsubmit").style.visibility = "inherit";
+    document.getElementById("TDEEsubmit").style.height = "auto";
   }
-  TDEE()
+  
+  // using jquery/ajax post call
+  function postTDEE() {
+    var TDEE = parseFloat(document.getElementById("totalTDEE").innerHTML);
+    $.post("/TDEEcalc", { TDEE: TDEE });
+  }
