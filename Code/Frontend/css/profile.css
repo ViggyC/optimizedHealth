@@ -1,22 +1,24 @@
 /*PROFILE STYLES*/
+
 .hiname {
     font-weight: 300;
     text-align: center;
     font-size: 2rem;
+    margin-left: auto;
+    margin-right: auto;
   }
   
-  .category {
-    text-align: center;
-    margin: auto;
-    background-color: #606060;
-    width: 100%;
-    border: 3px solid black;
-    padding-left: 27rem;
-  }
+  
   
   .profilepic {
     text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom:0;
+    padding:0;
   }
+
+
   .center {
     display: block;
     margin-left: auto;
@@ -28,17 +30,25 @@
     background-color : #606060;
     margin: auto;
     width: 50%;
+    margin-left: auto;
+    margin-right: auto;
  
   padding: 10px;
 }
 
 .card-img-top{
     height:100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.each{
+  margin:0;
+  padding:0;
+  border: 3px solid black;
 }
 
 
 
 
-.all{
-    background-color: #DEB887;
-}
+

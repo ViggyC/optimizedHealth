@@ -11,6 +11,8 @@ second.addEventListener("input", sum);
 third.addEventListener("input", sum);
 fourth.addEventListener("input", sum);
 fifth.addEventListener("input", sum);
+result.addEventListener("p", sum);
+
 
 function sum() {
   
@@ -22,7 +24,7 @@ var five = parseFloat(fifth.value) || 0;
   
 var calculate = one+two+three+four+five;
 
-result.innerHTML = "Total Caloric Intake Is : " + calculate;
+find("result").innerHTML =  calculate;
 }
 //inspired by https://www.facebook.com/iamsrithanreddy
 

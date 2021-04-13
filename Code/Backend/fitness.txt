@@ -1,3 +1,4 @@
+
 CREATE TABLE fitness(
 activityName VARCHAR(20),
 date DATE,
@@ -8,3 +9,5 @@ CONSTRAINT activityID PRIMARY KEY(activityName, date),
 email VARCHAR(200) NOT NULL,
 unique(email)
 );
+
+

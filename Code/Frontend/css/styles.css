@@ -40,7 +40,7 @@ div {
 }
 
 .registrationform {
-  padding-top: 5rem;
+  padding-top: 3.5rem;
   font-size: 30px;
   padding-bottom: 5rem;
   color: white
@@ -96,7 +96,7 @@ div {
   background-image: url(https://www.colorado.edu/sites/default/files/styles/xlarge/public/campus_scenics.jpg?itok=HDtlOH9A);
   background-size: cover;
   background-position: center;
-  height: 100px;
+  height: 10rem;
 }
 
 .about-banner-text {
@@ -113,6 +113,14 @@ div {
   font-weight: bold;
   text-align: center;
   padding-top: 3rem;
+  background-color: antiquewhite;
+  padding:0;
+  margin: 0;
+}
+
+.newsCards{
+  background-color: aliceblue;
+  padding:0;
 }
 
 

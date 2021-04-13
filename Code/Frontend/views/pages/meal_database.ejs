@@ -35,14 +35,14 @@
 
   
     
-  
   <div id="userMealInput">  
-    <h2 style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; text-align:center">Enter Your Preferences</h1>
-  
+    <h2 class="display-3" style= "color: #000000;">Find your Next Meal</h2>
+    <img src="https://www.forksoverknives.com/wp-content/uploads/fly-images/25860/different-diets5-664x374-c.jpg" alt="ketopaleoetc" width="400" height="200">
+
     <!-- <div class="row "> -->
      <form action="/meal_database"  method="post">
       <div class="form-group ">
-      <select id="dietDropDown" name = "dietType" class="form-control " >
+      <select id="dietDropDown" name = "dietType" class="form-control ">
         <option>Diet Type</option>
         <option >Vegetarian</option>
         <option >Western</option>
@@ -53,28 +53,32 @@
         <option >Raw</option>
       </select>
     </div>
-  
     <div class="form-group">
       <input  name="userCalories" class="form-control" id="userCalories" placeholder="Enter: Target Calories">
     </div>
     <div class="form-group">
       <input  name="exclude" class="form-control" id="exclude" placeholder="Exclude: separate items with comma">
     </div>
-    <button type="submit" onclick = "display()"class="btn btn-success">Generate Meals</button>
+    <button type="submit" onclick = "display()"class="btn btn-outline-info btn-lg btn-block">Generate Meals</button>
     </form>
- 
+  </div>
   <!-- </div> -->
   
 </div>  
-
-<div class="bottom">
-  <h1 style="font-style:italic; font-size:25px; padding-top:2rem;"> Watch the magic happen....</h1>
-  <h2 style= "color: #DC143C;" id="diettype">Diet Type: <%-diet%></h2>
-  <h2 style= "color: #DC143C;" id="calories">Target Calories: <%-calories%></h2>
-  <h2 style= "color: #DC143C;" id="calories">Excluding: <%-excluded%></h2>
 <div class="mealcards">
-  
-<div class="card-columns col-lg">
+  <h1 class="display-4" style="color: #8dacac; font-style:italic; font-size:25px;"> Watch the magic happen....</h1>
+  <h2 class="display-4" style= "color: #043a39;font-size:35px;" id="diettype">Diet Type: </h2><p class= "lead" style= "color: #0a7674;font-size:25px;"><%-diet%></p>
+  <h2 class="display-4" style= "color: #043a39;font-size:35px;" id="calories">Target Calories:</h2><p class= "lead" style= "color: #0a7674;font-size:25px;"><%-calories%></p>
+  <h2 class="display-4" style= "color: #043a39;font-size:35px;" id="calories">Excluding: </h2><p class= "lead" style= "color: #0a7674;font-size:25px;"><%-excluded%></p>
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<div class="align-center card-columns col-lg">
   <%
     if (items) {
       var cards = '';
@@ -86,19 +90,21 @@
       items.forEach(function(item) {  //making a card for each movie that was returned by the API call
         cards += 
   
-        '<div class="card" style="width: 18rem;"><div class="card-body"><h4 class="card-title">' 
+        '<div class="card bg-light border-info" style="width: 18rem; color: #000000; outline: #000000;"><div class="card-body" ><h3 class="card-title">' 
           + item.title + 
-          '</h4><p>Calories: '+ calories + 
-            ':</p><p>Protien: '+protein+'</p><p>Fat: '+fat+'</p><p>Carbs: '+carbs+'</p><a href="'+item.sourceUrl+'" target="_blank">Recipe</a></div></div>'
+          '</h4><p class="lead">Calories: '+ calories + 
+            ':</p><p class="lead">Protien: '+protein+'</p><p class="lead">Fat: '+fat+'</p><p class="lead">Carbs: '+carbs+'</p><a href="'+item.sourceUrl+'" target="_blank"class="btn btn-warning">Recipe</a></div></div>'
         
       }); %>
       <%- cards %>
   <% } %>
   </div>
-  
 </div>
-<h3 style="font-size: 15px; margin:0; padding-top:40rem;" class="calCalc">Back to <a  href="nutrition">Nutrition</a></h3>
 </div>
+<div class="bottom">
+<h3 class="display-3" style="font-size: 20px; margin:0; padding-top:6rem;" class="calCalc">Back to <a  href="nutrition">Nutrition</a></h3>
+</div>
+
   
 
 

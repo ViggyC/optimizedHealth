@@ -16,14 +16,15 @@
           <li class="nav-item">
             <a class="nav-link" href="fitness">Fitness</a>
           </li>
-          <li class="nav-item active">
-            <a class="nav-link" href="profile">Profile</a>
-          </li>
+          
           <li class="nav-item">
             <a class="nav-link" href="trending">Trending</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="about">About</a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="profile">Dashboard</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="registration">Register!</a>
@@ -35,89 +36,73 @@
 
 
   
-    <div style="background-image: url('../img/yoga.jpeg')" ;class="profileHeader card profilepic">
-      <h1 class="hiname">Welcome to Your Dashboard, <%=user%></h1>
+  <div style="background-image: url('../img/yoga.jpeg')" class="profileHeader card profilepic">
+    <h1 class="hiname">Welcome to your dashboard, <%=user%></h1>
 
-      <div class="imagecard" style="width: 18rem; height:18rem;">
-        <img class="card-img-top" src="/img/dummyImage.png" alt="Profile Picture" height="100px" width="100px">
-      </div>
-     
-      <p style="text-align:center; margin:0"><a href="/logout">Log out</a></p>
+    
+
+    <div class="imagecard" style="width: 18rem; height:18rem;">
+      
+      <img class="card-img-top" src="/img/dummyImage.png" alt="Profile Picture" height="100px" width="100px">
+    </div>
+   
+    <p style="text-align:center; margin:0"><a href="/logout">Log out</a></p>
+
+    <div class="quote">
+      <h5 style="font-style:italic">"<%=user_quote%>"</h5>
+      <h6 style="font-style:italic">--<%=quote_author%></h6>
 
     </div>
+
+  </div>
     
 
-    <!-- Beginning Profile Categories -->
-    <div class="category row">
-
-      <div class="btn-group">
-        <button type="button" class="btn btn-lg btn-success">Nutrition</button>
-        <button type="button" class="btn btn-success dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <span class="sr-only">Toggle Dropdown</span>
-        </button>
-        <div class="dropdown-menu">
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="nutrition">Nutrition Home</a>
-          <a class="dropdown-item" href="meal_database">Find a Meal Plan</a>
-          <a class="dropdown-item" href="BMRcalc">Calculate your BMR</a>
-        </div>
-      </div>
-      <!-- Example split danger button -->
-      <div class="btn-group">
-        <button type="button" class="btn btn-lg btn-danger">Fitness</button>
-        <button type="button" class="btn btn-danger dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <span class="sr-only">Toggle Dropdown</span>
-        </button>
-        <div class="dropdown-menu">
-       
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="fitness">Find your Fit</a>
-        </div>
-      </div>
-      <!-- Example split danger button -->
-      <div class="btn-group">
-        <button type="button" class="btn btn-lg btn-info">Sleep</button>
-        <button type="button" class="btn btn-info dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <span class="sr-only">Toggle Dropdown</span>
-        </button>
-        <div class="dropdown-menu">
-    
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="sleep">You deserve some rest</a>
-        </div>
-      </div>
-    </div>
-    <!-- END PROFILE dropdowns -->
+   
 
     
-    <div class="row all">
-      <div class="card allanalytics col-sm" style="background-color:#4682B4 ;width: 18rem; height:18rem;">
+    <div style="background-color: #4080bf ">
+    <div class="" >
+      <div class="card analytics " style="background-color:#a1c0e0; height:25rem;">
     
         <div class="card-body each">
-          <h5 class="card-title">Your Goals:</h5>
+          <h5 class="card-title text-muted">Today is <%=today  %> </h5>
           <!-- Will be some sort of list -->
-          <textarea rows="8" cols="50" name="comment" form="usrform">
-           </textarea>
-          <h6 class="card-subtitle mb-2 text-muted"></h6>
-          <p class="card-text"></p>
+          
+          <h6 class="card-subtitle mb-2">Write in your journal</h6>
+          <form action="/profile" method="post">
+            <textarea name="comments" id="comments" style="width:96%;height:15rem;font-size:1.2em;background-color:aliceblue;;">
+              <% if(journal!=null){%>
+                <%=journal%>
+                
+              <%}else{%>
+                <%=journal%>
+                
+
+              <%}%>
+            
+            </textarea><br>
+            <button class="btn btn-dark"type="submit" value="Submit">Save</button>
+            </form>
 
       
         </div>
       </div>
 
-      <div class="card analytics col-sm" style="background-color:#4682B4 ; width: 18rem; height:18rem;">
-        <div class="card-body each">
+      <div class="card analytics " style="background-color:aliceblue; height:18rem;">
+        <div class="card-body ">
           <h5 class="card-title">Analytics</h5>
           <h6 class="card-subtitle mb-2 text-muted">Stats</h6>
-          <h3 style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">BMR: <%=user_bmr%> </h3>
-          <h3 style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">TDEE: <%=user_tdee%> </h3>
+          <h3 style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif"><a href="/BMRcalc">BMR</a>: <%=user_bmr%> </h3>
+          <h3 style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif"><a href="/TDEEcalc">TDEE</a>: <%=user_tdee%> </h3><br>
+          <h3 style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">Previous Daily <a href="nutritionCalc">Caloric Intake: </a> </h3> 
+          <h3 style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size:1.2rem">Breakfast: <%=b%> kcals | Lunch: <%=l%> kcals | Dinner: <%=d%> kcals | First Snack: <%=s1%> kcals | Second Snack: <%=s2%> kcals</h3> 
          
           <p class="card-text"></p>
 
         </div>
       </div>
 
-      <div class="card analytics col-sm" style=" background-color:#4682B4 ; width: 18rem; height:18rem;">
+      <div class="card analytics"  style=" background-color:#a1c0e0; height:18rem;">
         <div class="card-body each">
           <h5 class="card-title">Account Info</h5>
           <h6 class="card-subtitle mb-2 text-muted"></h6>
@@ -130,6 +115,7 @@
         </div>
       </div>
     </div>
+  </div>
  
   
   

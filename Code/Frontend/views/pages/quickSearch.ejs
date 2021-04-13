@@ -31,19 +31,14 @@
         </ul>
       </div>
     </nav>
-
+    
 
     
-      <div class="" style="background-color: #4682B4; height: 400px;">
-        <div class="container-fluid" style="padding: 2%; ">
-         
+      <div class="" style="background-image: url('https://cdn.wallpapersafari.com/22/18/riY3Ba.jpg');" >
+        <div class="container-fluid" style="padding: 25%; ">
+            <h3>Got a question?</h3>
             <div class="row">
-              <div class="" style="padding-left: 15rem;">
-                
-                  <label style="color:white; font-size:30px"for="">Got a question?</label>
-            
-                  
-              </div>
+              <label style="color:rgb(55, 53, 53); font-size:30px; text-align:center"for="">We have the answer.</label>
               <div class="col-4">
                 <form action = "/quickSearch" method="post">
                 <input class="form-control" type="text" id= "nutritionQuestion" name="nutritionQuestion" placeholder="">
@@ -52,24 +47,26 @@
               <div class="col-1">
                 <button type = "submit" class="btn btn-light"  onclick = "apiCall()" value = "submit">Submit</button>
               </div>
-              <label style="color:white; font-size:30px"for="">We have the answer.</label>
+              
             </form>
             </div>
-            <p style="color:rgb(65, 68, 71)" >Ask something like:  </p>
+            <br>
+            <br>
+            <p style="color:rgb(70, 47, 47); font-size:medium" >Ask something like:  </p>
             <p class="example">How much vitamin C is in 2 apples?</p>
         </div>
       </div>
 
 
-      <div class="card calCalc" style="height: 50rem;">
-        <div class="card-body calCalc">
-          <h5 id="questionRender" class="card-title">Check this out</h5>
+      <div class="card calCalc" style="height: 20rem; background-color:aliceblue;">
+        <div class="card-body calCalc" style="background-color:aliceblue;">
+          <h5 id="questionRender" class="lead card-title">Check this out:</h5>
           <p style="font-family:bold;font-size:25px;" name = "answer" id="answer"><%-items%></p> <br>
           <p class="card-text"><small class="text-muted">Is this what you were looking for?</small></p>
           <img style="height: 50px; width: 50px;" src="<%-image%>" alt="">
         </div>
         
-        <h3 style="font-size: 15px; margin:0" class="calCalc">Back to <a  href="nutrition">Nutrition</a></h3>
+        <h3 style="font-size: 15px; margin:0;background-color:aliceblue;" class="calCalc">Back to <a  href="nutrition">Nutrition</a></h3>
       </div>
       
 
@@ -80,10 +77,7 @@
             <p style="font-family:bold;font-size:25px;" name = "answer" id="answer"><%-items%></p> <br>
             <img src="" alt="">
           </div>
-
         </div>
-
-
       </div> -->
  
       

@@ -16,14 +16,15 @@
           <li class="nav-item">
             <a class="nav-link" href="fitness">Fitness</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="profile">Profile</a>
-          </li>
+          
           <li class="nav-item">
             <a class="nav-link" href="trending">Trending</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="about">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="profile">Dashboard</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="registration">Register!</a>
@@ -33,11 +34,11 @@
     </nav>
   </section>
 
-    <header class="masthead">
+    <header class="masthead" style="background-color: aliceblue;">
       <div class="container h-100">
         <div class="row h-100 align-items-center">
           <div class="col-12 text-center">
-            <h1 class="display-2">OptimizedHealth</h1>
+            <h1 class="display-2"><i class="fab fa-opera"></i>ptimizedHealth</h1>
             <p class="lead">The frontpage of your health journey.</p>
           </div>
         </div>
@@ -49,7 +50,7 @@
         <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
         <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
       </ol>
-      <div class="carousel-inner">
+      <div class="carousel-inner" >
         <div class="carousel-item active">
           <a href="fitness">
             <img class="d-block w-100" src="https://post.healthline.com/wp-content/uploads/2018/08/9045-Gamifying_Workout_Fitness-1200x628-Facebook.jpg" alt="Second slide">
@@ -102,10 +103,22 @@
       </div>
 
       <!-- Page Content -->
-      <section class="py-5 btn-light">
+      <section class="py-5 btn-light" style="background-color: aliceblue;">
         <div class="container">
-          <h1 class="display-4 align-text-center">Health Progress</h1>
+          
 
+          <div class="card">
+            <div class="row h-100 align-items-center">
+              <div class="col-12 text-center">
+                <h3 class="display-4">View Your Dashboard</h3>
+             
+                <a href="profile" class="btn btn-info">Keep track of your goals and progress</a>
+              </div>
+              <div class="card-body"></div>
+            </div>
+          </div>
+
+          
           <div class="jumbotron jumbotron-fluid bg-light">
             <div class="container beta align-items-center btn-light">
             </div>
@@ -123,13 +136,26 @@
 
           </div>
         </div>
+        <div class="card">
+          <div class="row h-100 align-items-center">
+            <div class="col-12 text-center">
+              <h3 class="display-4">See the Latest News!</h3>
+              <h5>Hey, <%=user_name%></h5>
+              <p>Our trending page is full of the most recent articles on health, brought to you by the New York Times</p>
+              <a href="trending" class="btn btn-info">Click here to view</a>
+            </div>
+            <div class="card-body"></div>
+          </div>
+        </div>
       </section>
+      
+      
       <div class="card">
         <div class="row h-100 align-items-center">
           <div class="col-12 text-center">
             <h3 class="display-4">About Us</h3>
             <h5 class="card-title lead">Founded in 2021, our mission is to promote the health and well-being of individuals by allowing them to keep track of their habits simply and effectively.</h5>
-            <a href="about" class="btn btn-info">Click Here to Learn More</a>
+            <a href="about" class="btn btn-info">Learn More</a>
           </div>
           <div class="card-body"></div>
         </div>

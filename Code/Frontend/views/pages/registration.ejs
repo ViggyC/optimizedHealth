@@ -49,27 +49,27 @@
 
           
 
-          <form action="/registration" method = "POST">
+          <form class="registrationInput" action="/registration" method = "POST">
             <div class="form-group">
               <h2>Create Your Account</h2>
              
               <label class="lead" for="exampleInputPassword1">Username</label>
-              <input  class="form-control" id="createusername" name="createusername"placeholder="Username">
+              <input  class="form-control" id="createusername" name="createusername"placeholder="Username" style="width: 20rem;">
             </div>
             <div class="form-group ">
               <label class="lead" for="exampleInputEmail1">Email address</label>
-              <input type="email" class="form-control" name = "createemail" id="createemail" aria-describedby="emailHelp" placeholder="Enter email">
+              <input type="email" class="form-control" name = "createemail" id="createemail" aria-describedby="emailHelp" placeholder="Enter email" style="width: 20rem;">
             </div>
             <div class="form-group">
               <label class="lead" for="exampleInputPassword1">Password</label>
-              <input type="password" class="form-control" name= "createpwd" id="createpwd" placeholder="Password">
+              <input type="password" class="form-control" name= "createpwd" id="createpwd" placeholder="Password" style="width: 20rem;">
             </div>
             <div class="form-group">
               <label class="lead" for="exampleInputPassword1">Confirm Password</label>
-              <input  type="password" class="form-control" name= "confirmcreatepwd" id="confirmcreatepwd" placeholder="Confirm Password">
+              <input  type="password" class="form-control" name= "confirmcreatepwd" id="confirmcreatepwd" placeholder="Confirm Password" style="width: 20rem;">
             </div>
 
-            <button type="submit" id="accountsubmit-button" class="btn btn-primary btn-circle" onclick = "addUser()" disabled>Go!</button>
+            <button type="submit" id="accountsubmit-button" class="btn btn-primary btn-circle" onclick = "addUser()" disabled>Sign Up</button>
 
           </form>
           <ul>
@@ -80,22 +80,22 @@
             </ul>
 
         </div>
-        <div class=" card bg-dark text-center login col-md">
-          <form action="/login" method="POST">
+        <div class="card bg-dark text-center login col-md">
+          <form action="/login" method="POST" class="registrationInput">
             <div class="form-group formlogin">
               
 
               <h2>Already a User?</h2>
-              <h3><a href="\login">Log In</a></h3>
+            
               <label class="lead" for="exampleInputPassword1">Email</label>
 
-              <input type="email" class="form-control" name="email" id="email" placeholder="Email">
+              <input type="email" class="form-control" name="email" id="email" placeholder="Email" style="width: 20rem;">
             </div>
             <div class="form-group">
               <label class="lead" for="exampleInputPassword1">Password</label>
-              <input type="password" class="form-control" id="password" name="password" placeholder="Password">
+              <input type="password" class="form-control" id="password" name="password" placeholder="Password" style="width: 20rem;">
             </div>
-            <button type="submit" value="Login" class="btn btn-primary btn-circle">Go!</button>
+            <button type="submit" value="Login" class="btn btn-primary btn-circle">Log In</button>
           </form>
 
           <ul>

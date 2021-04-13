@@ -102,7 +102,7 @@ app.post('/registration', async (req,res)=>{
                 res.redirect('/login');
             }
           )
-          //I need to make nutrition table on my end-Vignesh
+         
           // initialize in nutrition table
           pool.query(`INSERT INTO nutrition (email) VALUES ($1)`, [createemail], (err, results)=>{
             if(err){
@@ -110,6 +110,27 @@ app.post('/registration', async (req,res)=>{
             }
             console.log("Nutrition "+ results.rows)
           })
+
+          //init fitness table
+          var activityID = Date.now();
+          pool.query(`INSERT INTO fitness (activityID, email) VALUES ($1, $2)`, [activityID, createemail], (err, results)=>{
+            if(err){
+              throw err
+            }
+            console.log("fitness "+ results.rows)
+          })
+
+          //init sleep table
+          pool.query(`INSERT INTO sleepinfo (sleepID, email) VALUES ($1, $2)`, [activityID, createemail], (err, results)=>{
+            if(err){
+              throw err
+            }
+            console.log("sleepinfo "+ results.rows)
+          })
+
+          
+
+        
         }
       }
     )//end of query
@@ -129,7 +150,7 @@ app.get('/login', (req,res) =>{
 
 app.post('/login', (req, res, next) => {
   passport.authenticate('local', {
-      successRedirect: '/profile', //if user login succeeded, redirect to their profile 
+      successRedirect: '/home', //if user login succeeded, redirect to their profile 
       failureRedirect: '/login', //if user login failed, redirect to login page
       failureFlash: true
   }) (req, res, next)
@@ -159,8 +180,11 @@ app.get('/sleep', function(req, res) {
 
 //Section 6 HOME
 app.get('/home', function(req, res) {
+  var userName = req.user.name;
+  console.log(userName);
   res.render("pages/home", {
-    page_title: "OptimizedHealth"
+    page_title: "OptimizedHealth",
+    user_name: userName
   })
 });
 
@@ -224,30 +248,89 @@ app.get('/trending', function(req, res) {
 //Section 9 PROFILE
 app.get('/profile', (req, res)=> {
   console.log("Directed to profile page");
+  var today = new Date();
+  var dd = String(today.getDate()).padStart(2, '0');
+  var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+  var yyyy = today.getFullYear();
+
+  today = mm + '/' + dd + '/' + yyyy;
+  
   if (req.user) { 
     var user_name = req.user.name;
     var user_email = req.user.email;
-    var query = 'SELECT bmr, tdee FROM nutrition WHERE email=\''+user_email+'\';'
+    var query = 'SELECT bmr, tdee, calorie_intake, user_journal FROM nutrition WHERE email=\''+user_email+'\';'
+    
+    
     var bmr;
     var tdee;
+    var b;
+    var l;
+    var d;
+    var s1;
+    var s2;
+    var quote;
+    var journal;
     //console.log("query: "+query)
-    var user_bmr = pool.query(query, (err,response)=>{
-      console.log(response.rows);
-      console.log(response.rows[0].bmr);
-      bmr = response.rows[0].bmr;
-      tdee = response.rows[0].tdee;
-      res.render("pages/profile", {
-        page_title: "Profile",
-        user: user_name,
-        user_email: user_email,
-        user_bmr: bmr,
-        user_tdee: tdee
-      });
-      if(err){
-        throw err;
-      }
- 
-    }); 
+    const settings = {
+      "async": true,
+      "crossDomain": true,
+      "url": "https://type.fit/api/quotes",
+      "method": "GET"
+    }
+    axios.request(settings).then(function (response) {
+
+      var numQuotes = response.data.length;
+      var randomQuote  = Math.floor(Math.random() * numQuotes); 
+      
+      quote = response.data[randomQuote].text;
+      quoteAuthor = response.data[randomQuote].author;
+      console.log(quote);
+      var user_bmr = pool.query(query, (err,response)=>{
+        console.log(response.rows);
+        console.log(response.rows[0].bmr);
+        bmr = response.rows[0].bmr;
+        tdee = response.rows[0].tdee;
+        journal = response.rows[0].user_journal;
+        console.log("Journal: "+journal);
+        
+        //b=response.rows[0].calorie_intake[0];
+        if(response.rows[0].calorie_intake===null){
+          b=null
+          l=null
+          d=null
+          s1=null
+          s2=null
+        }else{
+          b=response.rows[0].calorie_intake[0]
+          l=response.rows[0].calorie_intake[1];
+          d=response.rows[0].calorie_intake[2];
+          s1=response.rows[0].calorie_intake[3];
+          s2=response.rows[0].calorie_intake[4];
+        }
+        res.render("pages/profile", {
+          page_title: "Dashboard",
+          user: user_name,
+          user_email: user_email,
+          user_bmr: bmr,
+          user_tdee: tdee,
+          user_quote: quote,
+          quote_author: quoteAuthor,
+          b: b,
+          l: l,
+          d: d,
+          s1: s1,
+          s2: s2,
+          today:today,
+          journal: journal
+
+        });
+        if(err){
+          throw err;
+        }
+   
+      }); 
+  
+     });
 
   }
   else {
@@ -257,9 +340,31 @@ app.get('/profile', (req, res)=> {
   }
 });
 
+app.post('/profile', (req,res)=>{
+  var user_journal = req.body.comments;
+  console.log(user_journal);
+  pool.query('UPDATE nutrition SET user_journal=$1 WHERE email=$2', [user_journal, req.user.email],
+  (err, results) => {
+    if(err) {
+      throw err
+    }
+    console.log("Updated Journal");
+
+    res.redirect('profile');
+
+})
+})
+
+
 
 //Section 9 FITNESS
 app.get('/fitness', function(req, res) {
+  var user_email = req.user.email;
+  var query = 'Select activityName, date, duration, type, difficulty from fitness WHERE email=\''+user_email+'\';'
+  //console.log(query);
+  pool.query(query, (err,response)=>{
+    console.log(response.rows);
+  })
   res.render("pages/fitness", {
     page_title: "Fitness"
   })
@@ -442,19 +547,51 @@ app.post('/formreq', function(req, res, next){
   console.log(req.body.date);
   console.log(req.body.duration);
   console.log(req.body.difficulty);
+  var user_email = req.user.email;
 
-  // pool.query(
-  //   `INSERT INTO FITNESS VALUES ($1, $2, $3, $4, $5)`, 
-  //   [req.body.activityName, req.body.date, req.body.duration, req.body.type, req.body.difficulty], (err, results)=>{
-  //     if(err){
-  //       throw err
-  //     }
-  //     console.log(results.rows);
-  //     res.redirect('/fitness');
-  //   }
-  // )
+  
+
+  pool.query(
+    'UPDATE fitness SET activityName=$1, date=$2, duration=$3, type=$4, difficulty=$5 WHERE email=$6', 
+    [req.body.activityName, req.body.date, req.body.duration, req.body.type, req.body.difficulty, user_email], (err, results)=>{
+      if(err){
+        throw err
+      }
+      console.log(results.rows);
+      res.redirect('/fitness');
+    }
+  )
 });
 
+app.post('/sleepreq', function(req, res, next){
+  // req.body object has the form values
+  // outputs user input to console
+  console.log(req.body.sleepType);
+  console.log(req.body.date);
+  console.log(req.body.startTime);
+  console.log(req.body.endTime);
+  console.log(req.body.q1);
+  console.log(req.body.yesNo);
+  console.log(req.body.futreGoalLenght);
+  console.log(req.body.futureStartTime);
+  console.log(req.body.futreEndTime);
+  console.log(req.body.realStartTime);
+  console.log(req.body.realEndTime);
+
+  var user_email = req.user.email;
+
+  pool.query(
+    `UPDATE sleepInfo SET sleepType=$1, date=$2, startTime=$3, endTime=$4, q1=$5, yesNo=$6, futureGoalLength=$7, futureStartTime=$8, futureEndTime=$9, days=$10, realStartTime=$11, realEndTime=$12 WHERE email=$13`, 
+    [req.body.sleepType, req.body.date, req.body.startTime, req.body.endTime, req.body.q1, req.body.yesNo, req.body.futureGoalLength, req.body.futureStartTime, req.body.futureEndTime, req.body.days, req.body.realStartTime, req.body.realEndTime, user_email], (err, results)=>{
+      if(err){
+        throw err
+      }
+      console.log(results.rows);
+      res.redirect('/sleep');
+    }
+  )
+
+});
 
 
 

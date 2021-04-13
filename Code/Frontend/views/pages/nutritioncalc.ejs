@@ -1,4 +1,3 @@
-
 <%- include('../partials/header') %>
     
 <section id="navigation">
@@ -31,8 +30,9 @@
           <a class="nav-link" href="registration">Register!</a>
         </li>
       </ul>
-    </div>
-  </nav>
+    </nav>
+   
+    <div style="background-color: aliceblue;">
   <div class="card text-center">
       <h1 class="display-2">Nutritional Calculators</h1>
   </div>
@@ -48,7 +48,7 @@
       </li>
     </ul>
   <figure class="center" style="display:flex">
-      <img style="width:600px" src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/calories-1522925243.jpg" class = "center">
+      <img src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/calories-1522925243.jpg" class = "center" width="400" height="200">
   </figure>
   <div class="jumbotron jumbotron-fluid">
       <div class="p-3 mb-2 bg-info text-black">
@@ -65,24 +65,29 @@
                       <input type="number" name="s1" class="form-control" placeholder="Snack (in kcal)">
                       <input type="number" name="s2" class="form-control" placeholder="Snack (in kcal)">
 
-                      <button type="submit" class="btn btn-primary btn-circle">Submit</button>
+                      <button type="submit" class="btn btn-primary btn-circle">Submit</button> 
+                      
                   </form>
-                  <p class="font-weight-light" id="result"></p>
+                  <p> <span id="result"></span></p>
                   <% if (message) {
                     var html = '<br><p>' + message + '</p>'; %>
                     <%- html %>
+                      <a href="profile">Go to Dashboard</a>
                   <% } %>
                   </div>
               </div>       
           </div>   
       </div>
+    </div>
   </div>
 </div>
 </div>
   
   </div>
+  <div style="background-color: aliceblue;">
 <br>
 <br>
 <br>
+</div>
 
 <%- include('../partials/footer') %>
