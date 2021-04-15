@@ -29,7 +29,7 @@ app.use(passport.session());
 app.use(flash());
 
 
-
+//IMPORTANT!!!!: req.user is the authenticated user coming from passport and is in a current session
 
 
 
@@ -171,12 +171,7 @@ app.get('/about', function(req, res) {
   })
 });
 
-//Section 5 SLEEP
-app.get('/sleep', function(req, res) {
-  res.render("pages/sleep", {
-    page_title: "Sleep"
-  })
-});
+
 
 //Section 6 HOME
 app.get('/home', function(req, res) {
@@ -357,18 +352,7 @@ app.post('/profile', (req,res)=>{
 
 
 
-//Section 9 FITNESS
-app.get('/fitness', function(req, res) {
-  var user_email = req.user.email;
-  var query = 'Select activityName, date, duration, type, difficulty from fitness WHERE email=\''+user_email+'\';'
-  //console.log(query);
-  pool.query(query, (err,response)=>{
-    console.log(response.rows);
-  })
-  res.render("pages/fitness", {
-    page_title: "Fitness"
-  })
-});
+
 
 //Section 10 NUTRITION
 app.get('/nutrition', function(req, res) {
@@ -448,6 +432,7 @@ app.get('/personalizednutritionpage', function(req, res) {
     page_title: "Personalized Nutrition Page"
   })
 });
+
 
 app.get('/nutritioncalc', function(req, res) {
   res.render("pages/nutritioncalc", {
@@ -538,7 +523,32 @@ app.post('/TDEEcalc', function(req, res) {
   })
 })
 
+//Section 9 FITNESS
+app.get('/fitness', function(req, res) {
+  var user_email = req.user.email;
+  console.log("User email " +user_email);
+  var query = 'Select activityName, date, duration, type, difficulty from fitness WHERE email=\''+user_email+'\';'
+  console.log("query: " +query);
+  var activityName;
+  var date;
+  var duration;
+  var type;
+  var difficulty;
+  pool.query(query, (err,response)=>{
+    console.log(response.rows);
 
+    res.render("pages/fitness", {
+      page_title: "Fitness",
+      items: response.rows,
+      activityName: response.rows.activityname,
+      date: response.rows.date,
+      duration: response.rows.duration,
+      type: response.rows.type,
+      difficulty: response.rows.difficulty
+    })
+  })
+  
+});
 // Fitness form data
 app.post('/formreq', function(req, res, next){
   // req.body object has the form values
@@ -548,12 +558,12 @@ app.post('/formreq', function(req, res, next){
   console.log(req.body.duration);
   console.log(req.body.difficulty);
   var user_email = req.user.email;
-
+  var activityID = Date.now();
   
 
   pool.query(
-    'UPDATE fitness SET activityName=$1, date=$2, duration=$3, type=$4, difficulty=$5 WHERE email=$6', 
-    [req.body.activityName, req.body.date, req.body.duration, req.body.type, req.body.difficulty, user_email], (err, results)=>{
+    `INSERT INTO fitness (activityname, date, duration, type, difficulty, email, activityid) VALUES($1, $2, $3, $4, $5, $6, $7)`, 
+    [req.body.activityName, req.body.date, req.body.duration, req.body.type, req.body.difficulty, user_email, activityID], (err, results)=>{
       if(err){
         throw err
       }
@@ -563,6 +573,32 @@ app.post('/formreq', function(req, res, next){
   )
 });
 
+//SLEEP
+app.get('/sleep', function(req, res) {
+  console.log("In sleep get request");
+  var user_email = req.user.email;
+  console.log("User email: " +user_email);
+  var query = 'SELECT sleeptype, date, yesno, starttime, endtime FROM sleepinfo WHERE email=\''+user_email+'\';'
+  console.log("query: " +query);
+
+  pool.query(query, (err,response)=>{
+    console.log("response: " +response.rows);
+
+    res.render("pages/sleep", {
+      page_title: "Sleep",
+      items: response.rows,
+      sleepType: response.rows.sleepType,
+      date: response.rows.date,
+      yesNo: response.rows.yesNo,
+      startTime: response.rows.starttime,
+      endTime: response.rows.endtime,
+    })
+  })
+  
+});
+  
+
+// sleep form data
 app.post('/sleepreq', function(req, res, next){
   // req.body object has the form values
   // outputs user input to console
@@ -580,18 +616,22 @@ app.post('/sleepreq', function(req, res, next){
 
   var user_email = req.user.email;
 
-  pool.query(
-    `UPDATE sleepInfo SET sleepType=$1, date=$2, startTime=$3, endTime=$4, q1=$5, yesNo=$6, futureGoalLength=$7, futureStartTime=$8, futureEndTime=$9, days=$10, realStartTime=$11, realEndTime=$12 WHERE email=$13`, 
-    [req.body.sleepType, req.body.date, req.body.startTime, req.body.endTime, req.body.q1, req.body.yesNo, req.body.futureGoalLength, req.body.futureStartTime, req.body.futureEndTime, req.body.days, req.body.realStartTime, req.body.realEndTime, user_email], (err, results)=>{
+  var sleepID = Date.now();
+  
+
+ pool.query(
+   `INSERT INTO sleepInfo VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14)`, 
+    [req.body.sleepType, req.body.date, req.body.startTime, req.body.endTime, req.body.q1, req.body.yesNo, req.body.futureGoalLength, req.body.futureStartTime, req.body.futureEndTime, req.body.days, req.body.realStartTime, req.body.realEndTime, user_email, sleepID], (err, results)=>{
       if(err){
         throw err
       }
       console.log(results.rows);
-      res.redirect('/sleep');
+      res.redirect('/sleep'); 
     }
   )
 
 });
+
 
 
 

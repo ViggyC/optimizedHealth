@@ -1,4 +1,5 @@
 //for login
+//authenticate email and password here
 const Localstrategy = require('passport-local').Strategy;
 
 const {pool} = require('./dbConfig');
