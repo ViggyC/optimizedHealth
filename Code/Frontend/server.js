@@ -641,5 +641,3 @@ app.post('/sleepreq', function(req, res, next){
 app.listen(process.env.PORT||4000, function() {
   console.log("Server started on port 4000" + __dirname);
 });
-
-
