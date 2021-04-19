@@ -1,0 +1,281 @@
+<%- include('../partials/header') %>
+<section id="navigation">
+  <nav class="navbar navbar navbar-dark bg-dark">
+    <a class="navbar-brand" href="home"><i class="fab fa-opera"></i>ptimizedHealth</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="ml-auto navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="nutrition">Nutrition</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="sleep">Sleep</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="fitness">Fitness</a>
+        </li>
+        
+        <li class="nav-item">
+          <a class="nav-link" href="trending">Trending</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="about">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="profile">Dashboard</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="registration">Register!</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</section>
+
+         <!-- headline of website stuff -->
+         <header style="background-color:aliceblue"class="masthead">
+          <div class="container h-100">
+            <div class="row h-100 align-items-center">
+              <div class="col-12 text-center">
+                <h1 class="display-2"><em>Keep Track of your <i class="far fa-snooze"></i></em></h1>
+                <h4 class="display-4">
+                  with <i class="fab fa-opera"></i>ptimizedHealth
+                </h4>
+              </div>
+            </div>
+          </div>
+        </header>
+         <!-- Pics and stuff for sleep Info-->
+         <div style="background-color:bisque;">
+        <br>
+        <br>
+         <div class="container" style="background-color:#a1c0e0;">
+          <div class="row">
+            <div class="col">
+              <h3>Sleep Log</h3> <br>
+            </div>
+          </div>
+          <div class="row no-gutters">
+            
+          </div>
+         <form name = "sleepForm" action = "/sleepreq" method = "post"> <!--action = "connect.php" method ="post" -->
+          <div class="current-activity form-row">
+            <div class="current-activity form-group col-md-2">
+              <div class="current-activity form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="sleepType" id="radio1" value="Nap">
+                <label class="form-check-label" for="radio1">
+                  <h4>Nap</h4>
+                </label>
+              </div>
+            </div>
+            <div class="current-activity form-group col-md-2">
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="sleepType" id="radio2" value="Sleep">
+                <label class="form-check-label" for="radio2">
+                  <h4>Sleep</h4>
+                </label>
+              </div>
+            </div>
+            <div class="current-activity form-group col-md-2">
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="sleepType" id="radio4" value="Other">
+                <label class="form-check-label" for="radio4">
+                  <h4>Other</h4>
+                </label>
+              </div>
+            </div>
+          </div>
+        
+            <div class="current-activity form-group col-md-4">
+              <input type="text" class="form-control" name = "date" placeholder=" YYYY-MM-DD">
+            </div> <br>
+            <div class=" current-activity form-group col-md-4">
+              <input type="text" class="form-control" name ="startTime" placeholder="Start Time">
+            </div> <br>
+            <div class="current-activity form-group col-md-4">
+              <input type="text" class="form-control" name ="endTime" placeholder="End Time">
+            </div>
+            <h3>Quality</h3>
+          <div class=" current-activity form-row">
+           
+            <div class=" current-activity form-group col-md-1">
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="q1" id="Q1" value="1">
+                <label class="form-check-label" for="Q1">
+                  <h4>1</h4>
+                </label>
+              </div>
+            </div>
+            <div class="current-activity  form-group col-md-1">
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="q1" id="Q2" value="2">
+                <label class="form-check-label" for="Q2">
+                  <h4>2</h4>
+                </label>
+              </div>
+            </div>
+            <div class="current-activity  form-group col-md-1">
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="q1" id="Q3" value="3">
+                <label class="form-check-label" for="Q3">
+                  <h4>3</h4>
+                </label>
+              </div>
+            </div>
+            <div class="current-activity  form-group col-md-1">
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="q1" id="Q4" value="4">
+                <label class="form-check-label" for="Q4">
+                  <h4>4</h4>
+                </label>
+              </div>
+            </div>
+            <div class="current-activity  form-group col-md-1">
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="q1" id="Q5" value="5">
+                <label class="form-check-label" for="Q5">
+                  <h4>5</h4>
+                </label>
+              </div>
+            </div>
+            <div class="current-activity  form-group col-md-1">
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="q1" id="Q6" value="6">
+                <label class="form-check-label" for="Q6">
+                  <h4>6</h4>
+                </label>
+              </div>
+            </div>
+            <div class="current-activity  form-group col-md-1">
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="q1" id="Q7" value="7">
+                <label class="form-check-label" for="Q7">
+                  <h4>7</h4>
+                </label>
+              </div>
+            </div>
+            <div class="current-activity  form-group col-md-1">
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="q1" id="Q8" value="8">
+                <label class="form-check-label" for="Q8">
+                  <h4>8</h4>
+                </label>
+              </div>
+            </div>
+            <div class="current-activity  form-group col-md-1">
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="q1" id="Q9" value="9">
+                <label class="form-check-label" for="Q9">
+                  <h4>9</h4>
+                </label>
+              </div>
+            </div>
+            <div class="current-activity  form-group col-md-1">
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="q1" id="Q10" value="10">
+                <label class="form-check-label" for="Q10">
+                  <h4>10</h4>
+                </label>
+              </div>
+            </div>
+          </div>
+   
+              <div class=" current-activity form-group col-md-2">
+                <h3>Goal Met</h3>
+              </div>
+              <div class="current-activity  form-group col-md-1">
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="yesNo" id="GoalYes" value="Yes">
+                  <label class="form-check-label" for="GoalYes">
+                    <h4>Yes</h4>
+                  </label>
+                </div>
+              </div>
+              <div class=" current-activity form-group col-md-1">
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="yesNo" id="GoalNo" value="No">
+                  <label class="form-check-label" for="GoalNo">
+                    <h4>No</h4>
+                  </label>
+                </div>
+              </div>
+     
+          <!-- <div class="form-row">
+            <div class="form-group col-md-4">
+              <input type="text" class="form-control" id = "lengthGoal" name = "futureGoalLength" placeholder="Enter Future Goal Length">
+            </div>
+            <div class="form-group col-md-4">
+              <input type="text" class="form-control" id = "startGoal"  name = "futureStartTime" placeholder="Enter Future Start Time">
+            </div>
+            <div class="form-group col-md-4">
+              <input type="text" class="form-control" id = "endGoal" name = "futureEndTime" placeholder="Enter Future End Time">
+            </div>
+          </div> -->
+          <!-- <label for="days">Choose a day of the week:</label>
+          <select name="days" id="days">
+            <option value="M">Monday</option>
+            <option value="T">Tuesday</option>
+            <option value="W">Wednesday</option>
+            <option value="Th">Thursday</option>
+            <option value="F">Friday</option>
+            <option value="S">Saturday</option>
+            <option value="Su">Sunday</option>
+          </select> -->
+          <!-- <div class="form-row">
+            <div class="form-group col-md-4">
+              <input type="text" class="form-control" id = "timeSleepStart" name = "realStartTime" placeholder="Enter time you started sleeping">
+            </div>
+            <div class="form-group col-md-4">
+              <input type="text" class="form-control" id = "timeSleepEnd" name = "realEndTime" placeholder="Enter time you woke up">
+            </div>
+          </div> -->
+         
+          <button class="btn btn-dark"type="submit" value="Submit">Save</button>
+        </form>
+         </div>
+         <br>
+
+         <div class="row">
+          <div class="col">
+            <h2>Recent Sleep Log</h2>
+          </div>
+        </div>
+    
+        <div class="align-center card-columns col-lg">
+          <%
+            if (items) {
+              var cards = '';
+              //var calories = if(calories) ? calories: "Not found";
+              //var protein = if(protein) ? protein: "Not found"
+              //var fat = if(fat) ? fat: "Not found"
+              //var carbs = if(carbs) ? carbs: "Not found"
+              //<!-- Iterate the items object & update the cards variable -->
+              items.forEach(function(item) { 
+                if(item.sleeptype===null){
+              
+                  item.sleeptype="Enter Sleep Info";
+                  item.date="";
+                  item.starttime = "";
+                  item.endtime = "";
+                  item.yesno="";
+                } //making a card for each movie that was returned by the API call
+                cards += 
+                
+                
+                '<div class="card bg-light border-info" style="width: 18rem; color: #000000; outline: #000000;"><div class="card-body" ><h3 class="card-title">' 
+                  + item.sleeptype + 
+                  '</h4><p class="lead">Date: '+ item.date + 
+                    ':</p><p class="lead">Start time: '+ item.starttime + 
+                      ':</p><p class="lead">End time: '+ item.endtime + 
+                        ':</p><p class="lead">Goal Met: '+item.yesno+'</p></div></div>'
+                
+              }); %>
+              <%- cards %>
+          <% } %>
+         
+          </div>
+        </div>
+
+<%- include('../partials/footer') %>
