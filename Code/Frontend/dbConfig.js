@@ -13,6 +13,8 @@ const pool = new Pool({
 
 console.log("connection string: " + connectionString);
 console.log("is production: " + isProduction);
+console.log("pool string: " + pool.connectionString);
+
 module.exports = {pool};
 
 //the USER is optimizedhealth
