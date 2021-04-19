@@ -34,7 +34,7 @@ app.use(flash());
 
 
 //Section 2 USER REGISTRATION
-app.get('/registration', (req, res)=> {
+app.get('/', (req, res)=> {
 
   res.render('pages/registration',{
     page_title: "Registration Page",
@@ -44,7 +44,7 @@ app.get('/registration', (req, res)=> {
 });
 
 
-app.post('/registration', async (req,res)=>{
+app.post('/', async (req,res)=>{
   
   let{createusername, createemail, createpwd, confirmcreatepwd} = req.body;
   console.log({createusername, createemail, createpwd, confirmcreatepwd});
@@ -331,7 +331,7 @@ app.get('/profile', (req, res)=> {
   else {
     // if not logged in, can't see profile page
     //or if server is restarted
-    res.redirect('/registration');
+    res.redirect('/');
   }
 });
 
