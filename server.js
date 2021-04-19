@@ -21,7 +21,9 @@ app.use(express.static(__dirname + '/'));
 const dbConfig= process.env.DATABASE_URL;
 
 const pool= new Pool({
-    connectionString: dbConfig
+    connectionString: dbConfig, ssl: {
+      rejectUnauthorized: false
+    }
 });
 
 app.use(
