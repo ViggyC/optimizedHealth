@@ -1,10 +1,11 @@
 //Section 1 Installations
 const express = require('express');
 const app = express();
-const {pool} = require('./dbConfig'); //db connection
+//const {pool} = require('./dbConfig'); //db connection
 const bcrypt = require('bcrypt');
 const session = require('express-session');
 const flash = require('express-flash');
+const {Pool} = require('pg');
 var bodyParser = require('body-parser'); //Ensure our body-parser tool has been added
 app.use(bodyParser.json()); // support json encoded bodies
 const axios = require('axios');
@@ -14,6 +15,14 @@ initializePassport(passport);
 app.set('view engine', 'ejs');
 app.use(express.urlencoded({extended: false})); // support encoded bodies** check back here
 app.use(express.static(__dirname + '/'));
+
+
+
+const dbConfig= process.env.DATABASE_URL;
+
+const pool= new Pool({
+    connectionString: dbConfig
+});
 
 app.use(
   session({
