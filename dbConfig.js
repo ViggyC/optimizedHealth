@@ -19,3 +19,7 @@ module.exports = {pool};
 //the USER is optimizedhealth
 //the database name is nodelogin
 //the table in the database is called 'users'
+
+// // ssl: {
+//   rejectUnauthorized: false
+// }

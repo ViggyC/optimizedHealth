@@ -2,3 +2,39 @@
     margin: 0 auto;
     float: none;
 }
+
+.visionheader{
+    height: 700px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+}
+
+#header {
+    font-family: Nunito;
+    font-size: 40px;
+    text-align: center;
+  }
+  
+  
+  
+  .visionstatement {
+    padding-top: 5rem;
+  }
+  
+  .start {
+    padding-top: 8rem;
+  }
+  
+  .registrationform {
+    padding-top: 3.5rem;
+    font-size: 30px;
+    padding-bottom: 5rem;
+    color: white
+  }
+  
+  .login {
+    padding-top: 3.5rem;
+    color: white;
+  }

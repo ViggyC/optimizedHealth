@@ -21,35 +21,7 @@ div {
 
 
 /*Registration Page Styles*/
-#header {
-  font-family: Nunito;
-  font-size: 40px;
-  text-align: center;
-}
 
-.visionheader {
-  height: 800px;
-}
-
-.visionstatement {
-  padding-top: 5rem;
-}
-
-.start {
-  padding-top: 8rem;
-}
-
-.registrationform {
-  padding-top: 3.5rem;
-  font-size: 30px;
-  padding-bottom: 5rem;
-  color: white
-}
-
-.login {
-  padding-top: 3.5rem;
-  color: white;
-}
 
 .copyright {
   font-size: 10px;
