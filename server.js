@@ -620,8 +620,8 @@ app.post('/sleepreq', function(req, res, next){
   
 
  pool.query(
-   `INSERT INTO sleepInfo VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14)`, 
-    [req.body.sleepType, req.body.date, req.body.startTime, req.body.endTime, req.body.q1, req.body.yesNo, req.body.futureGoalLength, req.body.futureStartTime, req.body.futureEndTime, req.body.days, req.body.realStartTime, req.body.realEndTime, user_email, sleepID], (err, results)=>{
+   `INSERT INTO sleepInfo VALUES ($1, $2, $3, $4, $5, $6, $7)`, 
+    [req.body.sleepType, req.body.date, req.body.startTime, req.body.endTime, req.body.q1, req.body.yesNo, user_email], (err, results)=>{
       if(err){
         throw err
       }
