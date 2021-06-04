@@ -84,6 +84,7 @@ app.post('/', async (req,res)=>{
         }
         console.log(results.rows);
 
+        //if user email is already registered
         if(results.rows.length >0){
           errors.push({message: "Email already registered!"}); //Error message works!s
           res.render('pages/registration',{

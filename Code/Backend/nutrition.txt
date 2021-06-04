@@ -1,7 +1,0 @@
-CREATE TABLE nutrition(
- email VARCHAR(200) PRIMARY KEY,
- bmr integer,
- tdee integer,
- calorie_intake integer[]
-
-);
