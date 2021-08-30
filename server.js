@@ -57,16 +57,18 @@ app.post('/', async (req,res)=>{
 
   if(createpwd.length < 6){
     errors.push({message: "Password too short. Must be at least 6 characters"});
+    //alert("Password too short. Must be at least 6 characters")
   }
 
   if(createpwd != confirmcreatepwd){
     errors.push({message: "Passwords do not match!"});
+    //alert("Passwords do not match!")
   }
 
   if(errors.length > 0){
     res.render('pages/registration', {
       page_title: "Registration Page",
-      error: errors
+      errors: errors
       
     })
   }else{

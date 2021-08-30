@@ -77,13 +77,14 @@
 
           </form>
           <ul>
-           <%if (typeof errors !='undefined') { %>
+           <%if (typeof errors != 'undefined') { %>
                <% errors.forEach(error=>{ %> 
                  <li style="color:red;font-size: 20px; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif"><%= error.message %></li>
                <%})%> <% }%>
             </ul>
 
         </div>
+        <!--  -->
         <div class="card bg-dark text-center login col-md">
           <form action="/login" method="POST" class="registrationInput">
             <div class="form-group formlogin">

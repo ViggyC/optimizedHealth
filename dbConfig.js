@@ -8,9 +8,9 @@ const connectionString = `postgresql://${process.env.DB_USER}:${process.env.DB_P
 //port is 5433
 
 const pool = new Pool({
-    connectionString: isProduction ? process.env.DATABASE_URL : connectionString, ssl: {
-        rejectUnauthorized: false
-      }
+    connectionString: isProduction ? process.env.DATABASE_URL : connectionString, ssl:{
+      rejectUnauthorized: false
+    }
 });
 
 
