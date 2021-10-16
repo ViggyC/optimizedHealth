@@ -1,5 +1,6 @@
 require('dotenv').config();
 
+//use .ENV for local running
 const {Pool} = require('pg');
 
 const isProduction = process.env.NODE_ENV ==='production';
