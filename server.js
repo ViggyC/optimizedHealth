@@ -246,7 +246,7 @@ app.get("/profile", (req, res) => {
     var user_name = req.user.name;
     var user_email = req.user.email;
     var query =
-      "SELECT bmr, tdee, calorie_intake, user_journal FROM nutrition WHERE email='" +
+      "SELECT bmr, tdee, calorie_intake FROM nutrition WHERE email='" +
       user_email +
       "';";
 
@@ -274,40 +274,40 @@ app.get("/profile", (req, res) => {
       quoteAuthor = response.data[randomQuote].author;
       console.log(quote);
       var user_bmr = pool.query(query, (err, response) => {
-        //console.log(response.rows);
-        console.log(response.rows[0].bmr);
-        bmr = response.rows[0].bmr;
-        tdee = response.rows[0].tdee;
-        journal = response.rows[0].user_journal;
-        console.log("Journal: " + journal);
+        //console.log("resposne bruh ", response.row);
+        //console.log(response.rows[0].bmr);
+        //bmr = response.rows[0].bmr;
+        // tdee = response.rows[0].tdee;
+        //journal = response.rows[0].user_journal;
+        //console.log("Journal: " + journal);
 
         //b=response.rows[0].calorie_intake[0];
-        if (response.rows[0].calorie_intake === null) {
-          b = null;
-          l = null;
-          d = null;
-          s1 = null;
-          s2 = null;
-        } else {
-          b = response.rows[0].calorie_intake[0];
-          l = response.rows[0].calorie_intake[1];
-          d = response.rows[0].calorie_intake[2];
-          s1 = response.rows[0].calorie_intake[3];
-          s2 = response.rows[0].calorie_intake[4];
-        }
+        // if (response.rows[0].calorie_intake === null) {
+        //   b = null;
+        //   l = null;
+        //   d = null;
+        //   s1 = null;
+        //   s2 = null;
+        // } else {
+        //   b = response.rows[0].calorie_intake[0];
+        //   l = response.rows[0].calorie_intake[1];
+        //   d = response.rows[0].calorie_intake[2];
+        //   s1 = response.rows[0].calorie_intake[3];
+        //   s2 = response.rows[0].calorie_intake[4];
+        // }
         res.render("pages/profile", {
           page_title: "Dashboard",
           user: user_name,
           user_email: user_email,
-          user_bmr: bmr,
-          user_tdee: tdee,
+          //user_bmr: bmr,
+          //user_tdee: tdee,
           user_quote: quote,
           quote_author: quoteAuthor,
-          b: b,
-          l: l,
-          d: d,
-          s1: s1,
-          s2: s2,
+          // b: b,
+          // l: l,
+          // d: d,
+          // s1: s1,
+          // s2: s2,
           today: today,
           journal: journal,
         });
