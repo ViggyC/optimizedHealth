@@ -274,7 +274,7 @@ app.get("/profile", (req, res) => {
       quoteAuthor = response.data[randomQuote].author;
       console.log(quote);
       var user_bmr = pool.query(query, (err, response) => {
-        console.log(response.rows);
+        //console.log(response.rows);
         console.log(response.rows[0].bmr);
         bmr = response.rows[0].bmr;
         tdee = response.rows[0].tdee;
