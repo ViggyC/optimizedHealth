@@ -128,16 +128,16 @@ app.post("/", async (req, res) => {
           );
 
           //init sleep table
-          pool.query(
-            `INSERT INTO sleepinfo (sleepID, email) VALUES ($1, $2)`,
-            [activityID, createemail],
-            (err, results) => {
-              if (err) {
-                throw err;
-              }
-              console.log("sleepinfo " + results.rows);
-            }
-          );
+          // pool.query(
+          //   `INSERT INTO sleepinfo (sleepID, email) VALUES ($1, $2)`,
+          //   [activityID, createemail],
+          //   (err, results) => {
+          //     if (err) {
+          //       throw err;
+          //     }
+          //     console.log("sleepinfo " + results.rows);
+          //   }
+          // );
         }
       }
     ); //end of query
