@@ -38,6 +38,7 @@ app.get("/", (req, res) => {
   });
 });
 
+//REGISTRATION endpoint, loads all user stuff
 app.post("/", async (req, res) => {
   let { createusername, createemail, createpwd, confirmcreatepwd } = req.body;
   console.log({ createusername, createemail, createpwd, confirmcreatepwd });
@@ -116,16 +117,16 @@ app.post("/", async (req, res) => {
 
           //init fitness table
           var activityID = Date.now();
-          pool.query(
-            `INSERT INTO fitness (activityID, email) VALUES ($1, $2)`,
-            [activityID, createemail],
-            (err, results) => {
-              if (err) {
-                throw err;
-              }
-              console.log("fitness " + results.rows);
-            }
-          );
+          // pool.query(
+          //   `INSERT INTO fitness (activityID, email) VALUES ($1, $2)`,
+          //   [activityID, createemail],
+          //   (err, results) => {
+          //     if (err) {
+          //       throw err;
+          //     }
+          //     console.log("fitness " + results.rows);
+          //   }
+          // );
 
           //init sleep table
           // pool.query(
